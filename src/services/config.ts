@@ -16,7 +16,7 @@ const envVarRegex = /^\$\{(.*)\}$/
 
  * @type {{}}
  */
-let config = {}
+let projectConfig: any
 let configName: string = "NONE"
 
 /**
@@ -27,7 +27,7 @@ let configName: string = "NONE"
  @param strict: WIll crash if some variables are not found in environment, otherwise will replace by undefined
  @return: the current parsed config
  */
-function initConfig(configPath: string, strict = false) {
+export function initConfig(configPath: string, strict = false) {
     let fullConfig: any = {}
 
     // Creating default file
@@ -59,7 +59,7 @@ function initConfig(configPath: string, strict = false) {
                     return "UNDEFINED"
                 }
             }
-            
+
             return val
 
         } else {
@@ -92,8 +92,8 @@ function initConfig(configPath: string, strict = false) {
     }
 
     configName = __tryParseEnvVarFromConfig(fullConfig["ENV"])
-    config = fullConfig[fullConfig["ENV"]]
-    return config
+    projectConfig = fullConfig[fullConfig["ENV"]]
+    return projectConfig
 }
 
 /**
@@ -106,7 +106,7 @@ function getConfig(key = "", defaultVal: any) {
         throw new Error("The key must be in the format key1.key2.key3...")
     }
 
-    let val: any = {...config}
+    let val: any = {...projectConfig}
     key.split('.').forEach(subKey => {
         if (subKey === "") {
             return
@@ -137,7 +137,10 @@ function getConfig(key = "", defaultVal: any) {
  * @param configFilePath
  * @returns {getConfig}
  */
-module.exports = (configFilePath = "config.json") => {
-    initConfig(configFilePath)
-    return getConfig
+export default (key: string, defaultValue?: any) => {
+    if (!projectConfig) {
+        initConfig("config.json")
+    }
+
+    return getConfig(key, defaultValue)
 }

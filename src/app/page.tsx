@@ -10,6 +10,12 @@ export default function Home() {
             <div>
                 <p>Hello I'm a Next.js app!</p>
             </div>
+            <form method={"POST"} action="/api/createAdmin">
+                <input type="text" name="name" />
+                <input type="text" name="email" />
+                <input type="text" name="password" />
+                <input type="submit" value="Submit" />
+            </form>
         </main>
     )
 }

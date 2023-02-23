@@ -15,5 +15,11 @@ model User {
   email    String  @unique
   password String
   name     String
+  role     Role    @default(USER)
+  canEdit  Boolean @default(false)
 }
 
+enum Role {
+  USER
+  ADMIN
+}

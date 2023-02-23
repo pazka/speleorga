@@ -1,0 +1,13 @@
+{
+  "ENV": "${ENV}",
+  "DEV": {
+    "admin_pswd": "admin",
+    "secret": "secret",
+    "allow_admin_creation": true
+  },
+  "PROD": {
+    "admin_pswd": "${ADMIN_PSWD}",
+    "secret": "${SECRET}",
+    "allow_admin_creation": "${ALLOW_ADMIN_CREATION}"
+  }
+}
