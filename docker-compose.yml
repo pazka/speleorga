@@ -1,8 +1,9 @@
 ﻿version: "3"
 
-services: 
+services:
   db:
     image: postgres
+    container_name: club-db
     restart: always
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
