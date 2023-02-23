@@ -9,9 +9,9 @@ This is also my way of trying ou the NextJS framework.
 ## TODO 
 
    - ✅ Create a basic NextJS app
-   - ✅ Database setup
+   - 🔄 Sqlite Database setup
 
-   - 🔄 API : User management
+   - ⬛ API : User management
    - ⬛ API : Blog management
    - ⬛ API : Event management
    - ⬛ API : Gallery management
@@ -24,8 +24,3 @@ This is also my way of trying ou the NextJS framework.
    - ⬛ Blog Page
    - ⬛ Event Page
    - ⬛ Event Gallery Page
-
-## Development 
-
-- Stack is NextJS / Prisma / Postgres
-

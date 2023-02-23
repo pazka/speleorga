@@ -1,9 +1,9 @@
 ﻿version: "3"
 
-services:
+services: 
   db:
     image: postgres
-    container_name: club-db
+    container_name: speloarga-db
     restart: always
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -12,4 +12,4 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./db-data:/var/lib/postgresql/data
+      - ./.db-data:/var/lib/postgresql/data
